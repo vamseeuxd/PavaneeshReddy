@@ -1,0 +1,19 @@
+.search-list {
+  .nav-item {
+    cursor: pointer;
+    .action-bar {
+      position: absolute;
+      right: 5px;
+      top: 5px;
+      display: none;
+    }
+    &:hover {
+      .action-bar {
+        display: block;
+      }
+      .nav-link {
+        background: #20a8d8;
+      }
+    }
+  }
+}

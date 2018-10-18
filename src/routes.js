@@ -11,7 +11,6 @@ const Tiles = Loadable({
   loader: () => import('./views/Tiles/Tiles'),
   loading: Loading,
 });
-/*123*/
 const Forms = Loadable({
   loader: () => import('./views/Forms/Forms'),
   loading: Loading,
@@ -23,7 +22,7 @@ const Libraries = Loadable({
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
 const routes = [
-  { path: '/', exact: true, name: 'Zoetis', component: DefaultLayout },
+  { path: '/', exact: true, name: 'Venom', component: DefaultLayout },
   { path: '/libraries', name: 'Libraries', component: Libraries },
   { path: '/tiles', exact: true, name: 'Libraries / Forms / Tiles', component: Tiles },
   { path: '/forms', exact: true, name: 'Libraries / Forms', component: Forms }

@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
-import {Badge, DropdownItem, DropdownMenu, DropdownToggle, Nav, NavItem, NavLink} from 'reactstrap';
+import { Nav, NavItem, NavLink} from 'reactstrap';
 import PropTypes from 'prop-types';
 
-import {AppAsideToggler, AppHeaderDropdown, AppNavbarBrand, AppSidebarToggler} from '@coreui/react';
-import logo from '../../assets/img/brand/logo.svg'
-import sygnet from '../../assets/img/brand/sygnet.svg'
+import {AppSidebarToggler} from '@coreui/react';
 
 const propTypes = {
   children: PropTypes.node,
@@ -22,7 +20,7 @@ class DefaultHeader extends Component {
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile/>
         <h3 className="ml-5 text-primary font-weight-bold d-inline-block">
-          zoetis
+          Venom
           <AppSidebarToggler className="ml-5 d-md-down-none" display="lg"/>
         </h3>
 
