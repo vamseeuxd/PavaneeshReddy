@@ -1,28 +1,22 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-
-const propTypes = {
-  children: PropTypes.node,
-};
-
-const defaultProps = {};
+import React, {Component} from 'react';
+import {connect} from "react-redux";
 
 class DefaultFooter extends Component {
   render() {
-
-    // eslint-disable-next-line
-    const { children, ...attributes } = this.props;
-
     return (
       <React.Fragment>
-        <span><a href="http://localhost:3000">Venom</a> &copy; 2018 Venom.</span>
-        <span className="ml-auto">Powered by <a href="http://localhost:3000">Venom</a></span>
+        <span>{this.props.copyright}</span>
+        <span className="ml-auto">{this.props.poweredBy}</span>
       </React.Fragment>
     );
   }
 }
 
-DefaultFooter.propTypes = propTypes;
-DefaultFooter.defaultProps = defaultProps;
+const mapStateToProps = (state) => {
+  return {
+    poweredBy: state.footer.poweredBy,
+    copyright: state.footer.copyright,
+  }
+};
 
-export default DefaultFooter;
+export default connect(mapStateToProps)(DefaultFooter);
