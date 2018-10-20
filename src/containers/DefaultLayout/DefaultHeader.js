@@ -1,26 +1,15 @@
 import React, {Component} from 'react';
-import { Nav, NavItem, NavLink} from 'reactstrap';
-import PropTypes from 'prop-types';
-
+import {Nav, NavItem, NavLink} from 'reactstrap';
 import {AppSidebarToggler} from '@coreui/react';
-
-const propTypes = {
-  children: PropTypes.node,
-};
-
-const defaultProps = {};
+import connect from "react-redux/es/connect/connect";
 
 class DefaultHeader extends Component {
   render() {
-
-    // eslint-disable-next-line
-    const {children, ...attributes} = this.props;
-
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile/>
         <h3 className="ml-5 text-primary font-weight-bold d-inline-block">
-          Venom
+          {this.props.brand}
           <AppSidebarToggler className="ml-5 d-md-down-none" display="lg"/>
         </h3>
 
@@ -40,7 +29,10 @@ class DefaultHeader extends Component {
   }
 }
 
-DefaultHeader.propTypes = propTypes;
-DefaultHeader.defaultProps = defaultProps;
+const mapStateToProps = (state) => {
+  return {
+    brand: state.header.brand,
+  }
+};
 
-export default DefaultHeader;
+export default connect(mapStateToProps)(DefaultHeader);

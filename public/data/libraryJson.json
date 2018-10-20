@@ -1,0 +1,25 @@
+{
+  "library": [
+    {
+      "name": "Library 1",
+      "url": "./data/libraries/library1Data.json"
+    },
+    {
+      "name": "Library 2",
+      "url": "./data/libraries/library2Data.json"
+    },
+    {
+      "name": "Library 3",
+      "url": "./data/libraries/library3Data.json"
+    },
+    {
+      "name": "Library 4",
+      "url": "./data/libraries/library4Data.json"
+    },
+    {
+      "name": "Library 5",
+      "url": "./data/libraries/library5Data.json"
+    }
+  ]
+}
+

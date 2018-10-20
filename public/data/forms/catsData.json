@@ -1,0 +1,448 @@
+
+{
+  "id": "<some guid>",
+  "name": "root",
+  "w": 36,
+  "h": 24,
+  "x": 0,
+  "y": 0,
+  "style": "",
+  "grid": [
+    {
+      "name": "header",
+      "w": 36,
+      "h": 4,
+      "x": 0,
+      "y": 0,
+      "tiles": [
+        {
+          "name": "date",
+          "w": 12,
+          "h": 4,
+          "x": 0,
+          "y": 0,
+          "tiles" : [
+            {
+              "name": "date-label",
+              "w": 4,
+              "h": 4,
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "contents": {
+                "text": "DATE:",
+                "style": "something"
+              }
+            },
+            {
+              "name": "date-entry",
+              "w": 8,
+              "h": 4,
+              "x": 4,
+              "y": 0,
+              "type": "entry",
+              "contents": {
+                "control": "freetext",
+                "ahcars": {},
+                "style": "something"
+              }
+            },
+            {
+              "name": "date-helptext",
+              "w": 8,
+              "h": 4,
+              "x": 4,
+              "y": 0,
+              "type": "text",
+              "contents": {
+                "text": "DDMMMYY",
+                "style": "something"
+
+              }
+            }
+          ]
+        },
+        {
+          "name": "temp-unit",
+          "w": 10,
+          "h": 4,
+          "x": 14,
+          "y": 0,
+          "tiles" : [
+            {
+              "name": "temp-unit-label",
+              "w": 4,
+              "h": 4,
+              "x": 0,
+              "y": 0,
+              "type": "text",
+              "contents": {
+                "text": "TEMP UNIT:"
+              }
+            },
+            {
+              "name": "temp-unit-entry",
+              "w": 6,
+              "h": 4,
+              "x": 4,
+              "y": 0,
+              "type": "entry",
+              "contents": {
+                "control": "constant",
+                "value": "F",
+                "style": "something",
+                "ahcars": {}
+              }
+            }
+          ]
+        }
+
+      ]
+
+    },
+    {
+      "name": "main",
+      "w": 36,
+      "h": 16,
+      "x": 0,
+      "y": 4,
+      "tiles": [
+        {
+          "name": "Cats-temp-grid-1",
+          "id":"1",
+          "w": 12,
+          "h": 16,
+          "x": 0,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 1"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 1"
+              },
+              {
+                "field": "desc",
+                "width": 100,
+                "headerName": "Description 1"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext",
+                "desc": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext",
+                "desc": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext",
+                "desc": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-2",
+          "id":"2",
+          "w": 12,
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 2"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 2"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-3",
+          "id":"3",
+          "w": 12,
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 3"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 3"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-4",
+          "id":"4",
+          "w": 12,
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 4"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 4"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-5",
+          "id":"5",
+          "w": 12,
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 5"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 5"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-6",
+          "id":"6",
+          "width": "200px",
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 6"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 6"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-7",
+          "id":"7",
+          "width": "200px",
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 7"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 7"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-8",
+          "id":"8",
+          "w": 12,
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 8"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 8"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        },
+        {
+          "name": "Cats-temp-grid-9",
+          "id":"9",
+          "w": 12,
+          "h": 16,
+          "x": 4,
+          "y": 0,
+          "table": {
+            "labels": [
+              {
+                "field": "animal",
+                "width": 100,
+                "headerName": "Cats 9"
+              },
+              {
+                "field": "temp",
+                "width": 100,
+                "headerName": "Temp 9"
+              }
+            ],
+            "rows": [
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              },
+              {
+                "animal": "freetext",
+                "temp": "freetext"
+              }
+            ]
+          }
+        }
+      ]
+    }
+
+  ]
+
+}
+

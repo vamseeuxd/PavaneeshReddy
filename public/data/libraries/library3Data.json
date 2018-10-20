@@ -1,0 +1,39 @@
+{
+  "name": "My Library 3",
+  "details": {
+    "dayZero": {
+      "dayZeroType" : "date",
+      "dateZeroValue" : "03Apr18"
+    },
+    "reps": [
+      {"role": "data manager", "name": "Matthew St. Peter"},
+      {"role": "biometrics", "name": "Lucas Taylor"},
+      {"role": "import", "name": "Anne White"},
+      {"role": "clinical", "name": "Nicole Honsberger"},
+      {"role": "developer", "name": "Pavan Gurram"}
+    ]
+  },
+  "forms": [
+    {
+      "name": " poultry form",
+      "url": "./data/forms/poultryData.json"
+    },
+    {
+      "name": "fish form",
+      "url": "./data/forms/fishData.json"
+    },
+    {
+      "name": "pigs form",
+      "url": "./data/forms/pigsData.json"
+    },
+    {
+      "name": "cattle form",
+      "url": "./data/forms/cattleData.json"
+    },
+    {
+      "name": "sheep form",
+      "url": "./data/forms/sheepData.json"
+    }
+  ]
+}
+

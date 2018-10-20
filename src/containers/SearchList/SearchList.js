@@ -1,112 +1,50 @@
 import React, {Component} from 'react';
 import './SearchList.scss';
-import _ from 'lodash';
+import connect from "react-redux/es/connect/connect";
+import {
+  showFormDetailsModel,
+  updateSearchTextValue,
+  UpdateSelectedListItem
+} from "../../store/searchList/actions/searchList";
 
 class SearchList extends Component {
 
-  /*
-  * This option will mapped to redux store
-  * */
-  dataProvider = [
-    'Sample Item 0',
-    'Sample Item 1',
-    'Sample Item 2',
-    'Sample Item 3',
-    'Sample Item 4',
-    'Sample Item 5',
-    'Sample Item 6',
-    'Sample Item 7',
-    'Sample Item 8',
-    'Sample Item 9',
-    'Sample Item 10',
-    'Sample Item 11',
-    'Sample Item 12',
-    'Sample Item 13',
-    'Sample Item 14',
-    'Sample Item 15',
-    'Sample Item 16',
-    'Sample Item 17',
-    'Sample Item 18',
-    'Sample Item 19'
-  ];
-
   constructor(props) {
     super(props);
-    this.state = {searchTextValue: ''};
   }
 
   getFilteredList() {
-    return (this.state.searchTextValue.trim() == '') ? [] : this.dataProvider.filter(item => item.toLowerCase().indexOf(this.state.searchTextValue.toLowerCase()) >= 0);
+    if (this.props['isSearchInput']) {
+      return (this.props.searchTextValue.trim() === '') ? [] :
+        this.props['list'].filter(item => item[this.props['labelField']].toLowerCase().indexOf(this.props.searchTextValue.toLowerCase()) >= 0);
+    } else {
+      return this.props['list'];
+    }
   }
 
-  /*
-  * This option will mapped to redux store
-  * */
-  deleteItem() {
-    alert('Item Deleted');
-  }
-
-  /*
-  * This option will mapped to redux store
-  * */
-  editItem() {
-    alert('Item Edited');
-  }
-
-  /*
-  * This option will mapped to redux store
-  * */
-  onItemSelection() {
-    alert('Item Selected');
-  }
-
-  /*
-  * This option will mapped to redux store
-  * */
   searchTextChange(event) {
-    this.setState({searchTextValue: event.target.value});
+    this.props.updateSearchTextValue(event.target.value)
   }
 
-
-  getDeleteButton() {
-    return <button type="button" className="btn btn-brand btn-danger" onClick={this.deleteItem.bind(this)}>
-      <i className="fa fa-trash-o"></i>
-    </button>
-  }
-
-  getEditButton() {
-    return <button type="button" className="btn btn-brand btn-primary ml-1" onClick={this.editItem.bind(this)}>
-      <i className="fa fa-pencil-square-o"></i>
-    </button>
-  }
-
-
-  getNavItemLink(text) {
-    return <span className="nav-link" onClick={this.onItemSelection.bind(this)}>{text}</span>
-  }
-
-  getNavItem(text) {
-    const uniqueKey = _.uniqueId('contact_');
-    return <li className="nav-item" key={uniqueKey}>
-      {this.getNavItemLink(text)}
-      <div className="action-bar">
-        {this.getDeleteButton()}
-        {this.getEditButton()}
-      </div>
-    </li>
+  getNavItem(item) {
+    if (this.props.searchResultNavItemRenderer) {
+      return this.props.searchResultNavItemRenderer(item);
+    } else {
+      return '';
+    }
   }
 
   getSearchController() {
-    return <li className="nav-title">
+    return this.props['isSearchInput'] ? <li className="nav-title">
       <div className="form-group">
         <input type="text" onChange={(event) => {
           this.searchTextChange(event)
         }}
                className="form-control"
                placeholder="Search Libraries"
-               value={this.state.searchTextValue}/>
+               value={this.props.searchTextValue}/>
       </div>
-    </li>
+    </li> : '';
   }
 
   getNavItemsList() {
@@ -114,9 +52,43 @@ class SearchList extends Component {
     return filteredList ? filteredList.map(item => this.getNavItem(item)) : [];
   }
 
+  backButtonClick() {
+    debugger;
+    if (this.props['backButtonLink']) {
+      window.location = this.props['backButtonLink'];
+    }
+  }
+
+  detailsButtonClick() {
+    this.props.showFormDetailsModel(true);
+  }
+
+  getBackButton() {
+    return this.props['isBackButton'] ? <button onClick={this.backButtonClick.bind(this)}
+                                                className="btn btn-secondary btn-sm back-button">Back</button> : '';
+  }
+
+  getDetailsButton() {
+    return this.props['isDetailsButton'] ?
+      <button onClick={this.detailsButtonClick.bind(this)}
+              className="btn btn-primary btn-sm details-button">Details</button> : '';
+  }
+
+  getNavActionButtons() {
+    if (this.props['isBackButton'] || this.props['isDetailsButton']) {
+      return <div className="btn-group m-1 mt-2">
+        {this.getBackButton()}
+        {this.getDetailsButton()}
+      </div>
+    } else {
+      return '';
+    }
+  }
+
   render() {
     return (
       <div className="sidebar search-list">
+        {this.getNavActionButtons()}
         <nav className="sidebar-nav">
           <ul className="nav">
             {this.getSearchController()}
@@ -128,4 +100,30 @@ class SearchList extends Component {
   }
 }
 
-export default SearchList;
+const mapStateToProps = (state) => {
+  return {
+    list: state.searchList.list,
+    labelField: state.searchList.labelField,
+    isBackButton: state.searchList.isBackButton,
+    backButtonLink: state.searchList.backButtonLink,
+    isSearchInput: state.searchList.isSearchInput,
+    isDetailsButton: state.searchList.isDetailsButton,
+    updateListActionType: state.searchList.updateListActionType,
+    searchTextValue: state.model.searchTextValue,
+    searchResultNavItemRenderer: state.searchList.searchResultNavItemRenderer,
+  }
+};
+
+const mapDispatchToProps = dispatch => ({
+  UpdateSelectedListItem: (type, payload) => {
+    dispatch(UpdateSelectedListItem(type, payload));
+  },
+  showFormDetailsModel: isOpen => {
+    dispatch(showFormDetailsModel(isOpen));
+  },
+  updateSearchTextValue: value => {
+    dispatch(updateSearchTextValue(value));
+  }
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchList);
