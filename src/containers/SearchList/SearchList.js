@@ -53,7 +53,6 @@ class SearchList extends Component {
   }
 
   backButtonClick() {
-    debugger;
     if (this.props['backButtonLink']) {
       window.location = this.props['backButtonLink'];
     }
@@ -115,7 +114,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  UpdateSelectedListItem: (type, payload) => {
+  c: (type, payload) => {
     dispatch(UpdateSelectedListItem(type, payload));
   },
   showFormDetailsModel: isOpen => {

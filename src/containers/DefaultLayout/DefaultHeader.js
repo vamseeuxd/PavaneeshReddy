@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import {Nav, NavItem, NavLink} from 'reactstrap';
 import {AppSidebarToggler} from '@coreui/react';
 import connect from "react-redux/es/connect/connect";
 
@@ -8,22 +7,13 @@ class DefaultHeader extends Component {
     return (
       <React.Fragment>
         <AppSidebarToggler className="d-lg-none" display="md" mobile/>
-        <h3 className="ml-5 text-primary font-weight-bold d-inline-block">
+        <h3 className="ml-5 mt-2 text-primary font-weight-bold d-inline-block">
           {this.props.brand}
           <AppSidebarToggler className="ml-5 d-md-down-none" display="lg"/>
         </h3>
-
-        <Nav className="d-md-down-none" navbar>
-          <NavItem className="px-3">
-            <NavLink href="#/libraries">Libraries</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink href="#/forms">Forms</NavLink>
-          </NavItem>
-          <NavItem className="px-3">
-            <NavLink href="#/tiles">Tiles</NavLink>
-          </NavItem>
-        </Nav>
+        <p className="text-danger font-weight-bold mr-5 mt-3 d-inline-block">
+          {this.props.selectedLibrary ? this.props.selectedLibrary['name'] : ''}
+        </p>
       </React.Fragment>
     );
   }
@@ -32,6 +22,7 @@ class DefaultHeader extends Component {
 const mapStateToProps = (state) => {
   return {
     brand: state.header.brand,
+    selectedLibrary: state.model.selectedLibrary,
   }
 };
 

@@ -110,7 +110,6 @@ class Forms extends Component {
   }
 
   render() {
-
     return (
       <div className="animated fadeIn">
         <h4>Forms</h4>
@@ -126,7 +125,7 @@ const mapDispatchToProps = dispatch => ({
       list: list,
       labelField: 'name',
       listName: 'form',
-      isBackButton: true,
+      isBackButton: false,
       backButtonLink: '#/libraries',
       isDetailsButton: true,
       isSearchInput: false,

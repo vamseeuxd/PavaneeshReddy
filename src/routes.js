@@ -24,8 +24,8 @@ const Libraries = Loadable({
 const routes = [
   { path: '/', exact: true, name: 'Venom', component: DefaultLayout },
   { path: '/libraries', name: 'Libraries', component: Libraries },
-  { path: '/tiles', exact: true, name: 'Libraries / Forms / Tiles', component: Tiles },
-  { path: '/forms', exact: true, name: 'Libraries / Forms', component: Forms }
+  {path: '/forms', exact: true, name: 'Libraries / Forms', component: Forms},
+  {path: '/tiles', exact: true, name: 'Libraries / Forms / Tiles', component: Tiles}
 ];
 
 export default routes;

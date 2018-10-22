@@ -96,7 +96,7 @@ const mapDispatchToProps = dispatch => ({
       list: list,
       labelField: 'name',
       listName: 'tile',
-      isBackButton: true,
+      isBackButton: false,
       backButtonLink: '#/forms',
       isDetailsButton: false,
       isSearchInput: false,
